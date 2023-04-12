@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VenteAuto</title>
+        <style>
+        nav {
+            margin-top: 80px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333; /* optionnel : ajoute un fond sombre */
+        }
+
+        nav li {
+            float: left;
+        }
+
+        nav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav li a:hover {
+            background-color: #111; /* optionnel : ajoute un fond sombre lorsqu'on passe sur un bouton */
+        }
+
+        button {
+            display: block;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 200px;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        button:hover{
+            background-color: #111; /* optionnel : ajoute un fond sombre lorsqu'on passe sur un bouton */
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a.bouton {
+            display: block; /* permet de transformer les balises <a> en bloc */
+            margin: auto; /* centre les boutons verticalement */
+            width: 100px; /* ajuste la largeur des boutons */
+        }
+
+        a.bouton:first-child {
+            margin-top: 100px; /* ajoute une marge en haut du premier bouton */
+        }
+
+        a.bouton:not(:first-child) {
+            margin-top: 20px; /* décale les autres boutons vers le haut */
+        }
+
+    </style>
+</head>
+<body>
+    <p>administration</p>
+
+    <nav>
+        <ul>
+            <li><a class="navbar-item" href="/home">Accueil</a></li>
+            <li><a class="navbar-item" href="/visitlist">Liste de visite</a></li>
+            <li><a class="navbar-item" href="/reportlist">Rapport de visite</a></li>
+            <li><a class="navbar-item" href="/ordering">Commande</a></li>
+            <li><a class="navbar-item" href="/profile">Profil</a></li>
+            <li><a class="navbar-item" href="/administration">Administration</a></li>
+            <li><a class="navbar-item" href = '/logout'>Deconnection</a></li>
+        </ul>
+    </nav>
+
+    <a class="bouton" href='/new_user'><button>Nouvel utilisateur</button></a>
+	<a class="bouton" href='/delete_user'><button>Supprimer un utilisateur</button></a>
+	<a class="bouton" href='/disable_user'><button>Désactiver un utilisateur</button></a>
+
+</body>
+</html>

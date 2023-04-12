@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VenteAuto</title>
+        <style>
+        nav {
+            margin-top: 80px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333; /* optionnel : ajoute un fond sombre */
+        }
+
+        nav li {
+            float: left;
+        }
+
+        nav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav li a:hover {
+            background-color: #111; /* optionnel : ajoute un fond sombre lorsqu'on passe sur un bouton */
+        }
+
+                .visit-list {
+            margin: 0 auto;
+            max-width: 1200px;
+            padding: 20px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .visit-list table {
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .visit-list th,
+        .visit-list td {
+            text-align: center;
+            line-height: 3;
+        }
+
+        .visit-list .show-btn {
+            float: right;
+            display: block;
+            margin: auto;
+            background-color: limegreen;
+            border: none;
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .visit-list td button:active {
+            background-color: green;
+        }
+
+        .liste :not(:last-child) {
+            border-bottom: 1px solid #ccc;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <p>Liste detaillé</p>
+
+    <nav>
+        <ul>
+            <li><a class="navbar-item" href="/home">Accueil</a></li>
+            <li><a class="navbar-item" href="/visitlist">Liste de visite</a></li>
+            <li><a class="navbar-item" href="/reportlist">Rapport de visite</a></li>
+            <li><a class="navbar-item" href="/ordering">Commande</a></li>
+            <li><a class="navbar-item" href="/profile">Profil</a></li>
+            <li><a class="navbar-item" href = '/logout'>Deconnection</a></li>
+        </ul>
+    </nav>
+
+
+    <h1>Liste des visites</h1>
+    <div class="visit-list">
+        <table>
+            <thead>
+                <tr>
+                    <th>id visite</th>
+                    <th>id client</th>
+                    <th>id bon de commande</th>
+                    <th>id vehicule</th>
+                    <th>type visite</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for list in lists %}
+                <tr class = "liste">
+                    <td>{{ list[0] }}</td>
+                    <td>{{ list[1] }}</td>
+                    <td>{{ list[2] }}</td>
+                    <td>{{ list[3] }}</td>
+                    <td>{{ list[4] }}</td>
+                    <td>
+                        <form method="GET" action="{{url_for('visitingreport', id_visite = visit_id)}}">
+                            <input type="hidden" name="visit_id" value="{{ list[0] }}">
+                            <button class="show-btn" type="submit">Rapport</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+</body>
+</html>

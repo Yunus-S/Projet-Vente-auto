@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VenteAuto</title>
+    <style>
+        nav {
+            margin-top: 80px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333; /* optionnel : ajoute un fond sombre */
+        }
+
+        nav li {
+            float: left;
+        }
+
+        nav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav li a:hover {
+            background-color: #111; /* optionnel : ajoute un fond sombre lorsqu'on passe sur un bouton */
+        }
+
+		.container {
+			width: 100%;
+			height: 200px;
+			overflow: hidden;
+			position: relative;
+		}
+
+		.container img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 200px;
+			animation: scroll 10s linear infinite;
+		}
+
+		@keyframes scroll {
+			from { left: 0; }
+			to { left: -100%; }
+		}
+
+    </style>
+</head>
+
+<body>
+    <p>VenteAuto</p>
+
+    <nav>
+        <ul>
+            <li><a class="navbar-item" href="/home">Accueil</a></li>
+            <li><a class="navbar-item" href="/visitlist">Liste de visite</a></li>
+            <li><a class="navbar-item" href="/reportlist">Rapport de visite</a></li>
+            <li><a class="navbar-item" href="/ordering">Commande</a></li>
+            <li><a class="navbar-item" href="/profile">Profil</a></li>
+            <li><a class="navbar-item" href="/administration">Administration</a></li>
+            <li><a class="navbar-item" href = '/logout'>Deconnection</a></li>
+        </ul>
+    </nav>
+
+
+
+
+</body>
+
+</html>

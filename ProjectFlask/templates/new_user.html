@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VenteAuto</title>
+        <style>
+        nav {
+            margin-top: 80px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333; /* optionnel : ajoute un fond sombre */
+        }
+
+        nav li {
+            float: left;
+        }
+
+        nav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav li a:hover {
+            background-color: #111; /* optionnel : ajoute un fond sombre lorsqu'on passe sur un bouton */
+        }
+
+        form {
+            margin: 0 auto; /* centre le formulaire horizontalement */
+            margin-top: 10px;
+            max-width: 450px; /* limite la largeur du formulaire */
+            padding: 20px; /* ajoute de l'espace entre le formulaire et les bords */
+            display: flex;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2); /* ombre pour donner un effet de profondeur */
+            border-radius: 15px;
+            flex-direction: column; /* aligne les champs de formulaire verticalement */
+        }
+
+        label {
+            display: block; /* place chaque label sur une nouvelle ligne */
+            margin-bottom: 5px; /* ajoute de l'espace entre chaque label */
+        }
+
+        input,
+        select {
+            padding: 10px; /* ajoute de l'espace à l'intérieur des champs */
+            margin-bottom: 5px; /* ajoute de l'espace entre chaque champ */
+            width: 100%; /* uniformise la largeur des champs */
+            box-sizing: border-box; /* inclut la bordure et le padding dans la largeur totale */
+            border: 1px solid #ccc; /* bordure pour délimiter les champs de formulaire */
+            border-radius: 5px; /* arrondi les coins des champs de formulaire */
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50; /* couleur de fond pour le bouton "Envoyer" */
+            color: white; /* couleur du texte pour le bouton "Envoyer" */
+            border: none; /* supprime la bordure du bouton */
+            padding: 10px; /* ajoute de l'espace à l'intérieur du bouton */
+            cursor: pointer; /* change le curseur en pointeur au survol du bouton */
+        }
+    </style>
+</head>
+<body>
+    <p>Nouvel utilisateur</p>
+
+    <nav>
+        <ul>
+            <li><a class="navbar-item" href="/home">Accueil</a></li>
+            <li><a class="navbar-item" href="/visitlist">Liste de visite</a></li>
+            <li><a class="navbar-item" href="/reportlist">Rapport de visite</a></li>
+            <li><a class="navbar-item" href="/ordering">Commande</a></li>
+            <li><a class="navbar-item" href="/profile">Profil</a></li>
+            <li><a class="navbar-item" href="/administration">Administration</a></li>
+            <li><a class="navbar-item" href = '/logout'>Deconnection</a></li>
+        </ul>
+    </nav>
+
+    <form action="/new_user" method="post">
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required><br>
+
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom" required><br>
+
+        <label for="adresse">Adresse :</label>
+        <input type="text" id="adresse" name="adresse" required><br>
+
+        <label for="telephone">Téléphone :</label>
+        <input type="tel" id="telephone" name="telephone" pattern="[0-9]{10}" required><br>
+
+        <label for="mail">Mail :</label>
+        <input type="email" id="mail" name="mail" required><br>
+
+        <label for="status">Status :</label>
+        <select id="status" name="status" required>
+            <option value="Vendor">Vendeur</option>
+            <option value="Extern">Externe</option>
+        </select><br>
+
+        <label for="region">Région :</label>
+        <select id="region" name="region" required>
+            <option value="Auvergne-Rhône-Alpes">Auvergne-Rhône-Alpes</option>
+            <option value="Bourgogne-Franche-Comté">Bourgogne-Franche-Comté</option>
+            <option value="Bretagne">Bretagne</option>
+            <option value="Centre-Val de Loire">Centre-Val de Loire</option>
+            <option value="Corse">Corse</option>
+            <option value="Grand Est">Grand Est</option>
+            <option value="Hauts-de-France">Hauts-de-France</option>
+            <option value="Île-de-France">Île-de-France</option>
+            <option value="Normandie">Normandie</option>
+            <option value="Nouvelle-Aquitaine">Nouvelle-Aquitaine</option>
+            <option value="Occitanie">Occitanie</option>
+            <option value="Pays de la Loire">Pays de la Loire</option>
+            <option value="Provence-Alpes-Côte d'Azur">Provence-Alpes-Côte d'Azur</option>
+        </select><br>
+
+        <label for="login">Login :</label>
+        <input type="text" id="login" name="login" required><br>
+
+        <label for="motdepasse">Mot de passe :</label>
+        <input type="password" id="motdepasse" name="motdepasse" required><br>
+
+        <input type="submit" value="Envoyer">
+    </form>
+
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        form {
+            margin: 0 auto;
+            width: 450px;
+            padding: 1em;
+            border: 1px solid rgba(12, 204, 204, 0.81);
+            border-radius: 1em;
+        }
+
+        label {
+            display: inline-block;
+            width: 100px;
+            text-align: right;
+        }
+
+        input, textarea {
+            font: 1em sans-serif;
+
+            width: 300px;
+            box-sizing: border-box;
+
+            border: 1px solid #999;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #000;
+        }
+
+        .button {
+            padding-left: 104px;
+        }
+
+    </style>
+</head>
+<body>
+<form method="POST" action="user_login">
+    <div>
+        <label for="ID">Identifiant :</label>
+        <input type="text" id="ID" name="log_user_id">
+    </div>
+    <div>
+        <label for="password">Mot de passe :</label>
+        <input type="text" id="password" name="log_user_password">
+    </div>
+    <div class="button">
+        <button type="submit">Se connecter</button>
+    </div>
+
+</form>
+</body>
+</html>

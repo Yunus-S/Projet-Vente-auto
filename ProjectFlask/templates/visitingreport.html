@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VenteAuto</title>
+        <style>
+        nav {
+            margin-top: 80px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333; /* optionnel : ajoute un fond sombre */
+        }
+
+        nav li {
+            float: left;
+        }
+
+        nav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav li a:hover {
+            background-color: #111; /* optionnel : ajoute un fond sombre lorsqu'on passe sur un bouton */
+        }
+
+        form {
+            margin: 0 auto;
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        input,
+        select,
+        textarea {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        form label {
+            font-weight: bold;
+        }
+
+        form input[type="number"] {
+            width: calc(100% - 20px);
+        }
+
+        form select {
+            width: 100%;
+        }
+
+        form textarea {
+            height: 100px;
+            resize: none;
+        }
+
+        form span {
+            display: block;
+            text-align: right;
+            font-size: 12px;
+        }
+
+        input[type="submit"] {
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <p>Rapport de visite</p>
+
+    <nav>
+        <ul>
+            <li><a class="navbar-item" href="/home">Accueil</a></li>
+            <li><a class="navbar-item" href="/visitlist">Liste de visite</a></li>
+            <li><a class="navbar-item" href="/reportlist">Rapport de visite</a></li>
+            <li><a class="navbar-item" href="/ordering">Commande</a></li>
+            <li><a class="navbar-item" href="/profile">Profil</a></li>
+            <li><a class="navbar-item" href = '/logout'>Deconnection</a></li>
+        </ul>
+    </nav>
+
+    <form action="/visitingreport" method="post">
+        <label for="frais">Frais :</label>
+        <input type="number" id="frais" name="frais" min="0" required>
+        <br><br>
+        <label for="resultat">Résultat :</label>
+        <select id="resultat" name="resultat">
+            <option value="commande">Commande</option>
+            <option value="demande">Demande d'une autre visite</option>
+            <option value="pasinteresse">Pas intéressé</option>
+        </select>
+        <br><br>
+        <label for="observation">Observation :</label>
+        <textarea id="observation" name="observation" rows="10" cols="50" maxlength="1500" oninput="updateCount()"></textarea>
+        <br>
+        <span id="count"></span>
+        <br><br>
+        <input type="submit" value="Envoyer">
+    </form>
+
+    <script>
+      function updateCount() {
+        var maxLength = 1500;
+        var currentLength = document.getElementById("observation").value.length;
+        var count = maxLength - currentLength;
+        document.getElementById("count").textContent = count;
+      }
+    </script>
+
+</body>
+</html>
